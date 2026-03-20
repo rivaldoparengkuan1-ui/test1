@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PT. Sparkling Clean</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Poppins', sans-serif; }
+
+    .navbar {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 20px;
+      background:white;
+      position:sticky;
+      top:0;
+      box-shadow:0 2px 5px rgba(0,0,0,0.1);
+      z-index:1000;
+    }
+
+    .logo { display:flex; align-items:center; gap:10px; }
+    .logo img { width:35px; opacity:0.85; }
+    .logo span { font-weight:600; }
+
+    .menu { display:flex; }
+    .menu a {
+      margin:0 10px;
+      text-decoration:none;
+      color:#333;
+      cursor:pointer;
+    }
+
+    .menu a.active { color:#2a5298; font-weight:600; }
+
+    /* HAMBURGER */
+    .hamburger {
+      width:30px;
+      height:22px;
+      display:none;
+      flex-direction:column;
+      justify-content:space-between;
+      cursor:pointer;
+    }
+
+    .hamburger span {
+      height:3px;
+      width:100%;
+      background:#333;
+      border-radius:5px;
+      transition:0.3s;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px,5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity:0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px,-5px);
+    }
+
+    @media(max-width:768px){
+      .menu {
+        display:none;
+        flex-direction:column;
+        position:absolute;
+        top:60px;
+        right:20px;
+        background:white;
+        padding:15px;
+        border-radius:10px;
+        box-shadow:0 5px 15px rgba(0,0,0,0.1);
+      }
+
+      .menu.active { display:flex; }
+      .hamburger { display:flex; }
+    }
+
+    .hero {
+      background: linear-gradient(rgba(30,60,114,0.7), rgba(42,82,152,0.7)), url('https://images.unsplash.com/photo-1581578731548-c64695cc6952');
+      background-size:cover;
+      background-position:center;
+      color:white;
+      text-align:center;
+      padding:80px 20px;
+    }
+
+    .content {
+      padding:40px 20px;
+      max-width:900px;
+      margin:auto;
+    }
+
+    .section {
+      display:none;
+      opacity:0;
+      transform:translateY(20px);
+      transition:0.5s;
+    }
+
+    .section.active {
+      display:block;
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .box {
+      background:#f5f5f5;
+      padding:25px;
+      border-radius:15px;
+      margin-bottom:20px;
+    }
+
+    .box img {
+      width:100%;
+      border-radius:10px;
+      margin-bottom:15px;
+    }
+
+    .services-grid {
+      display:grid;
+      gap:15px;
+    }
+
+    .service-card {
+      background:white;
+      padding:15px;
+      border-radius:10px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .service-card img {
+      width:100%;
+      border-radius:10px;
+      margin-bottom:10px;
+    }
+
+    .contact-card {
+      background:white;
+      padding:20px;
+      border-radius:15px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    iframe {
+      width:100%;
+      height:250px;
+      border-radius:10px;
+      margin-top:15px;
+    }
+
+    footer {
+      text-align:center;
+      padding:15px;
+      background:#222;
+      color:white;
+      margin-top:40px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">
+    <img src="image/logo jasa.jpg">
+    <span>Sparkling Clean</span>
+  </div>
+
+  <div class="menu" id="menu">
+    <a onclick="showSection('about')" class="active">About</a>
+    <a onclick="showSection('services')">Services</a>
+    <a onclick="showSection('contact')">Contact</a>
+  </div>
+
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</nav>
+
+<header class="hero">
+  <h1>PT. Sparkling Clean</h1>
+  <p>Jasa kebersihan rumah profesional & terpercaya</p>
+</header>
+
+<div class="content">
+
+<div id="about" class="section active">
+  <div class="box">
+    <img src="image/about img.jpg">
+    <h2>Tentang Kami</h2>
+    <p>PT. Sparkling Clean merupakan perusahaan jasa kebersihan rumah yang berdiri sejak 8 Februari 2021. Kami hadir untuk memberikan solusi kebersihan yang praktis, profesional, dan terpercaya.</p>
+  </div>
+</div>
+
+<div id="services" class="section">
+  <div class="box">
+    <h2>Layanan</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952">
+        Pembersihan Rumah
+      </div>
+      <div class="service-card">
+        <img src="image/jasa kebersihan.jpg">
+        Area Tertentu
+      </div>
+      <div class="service-card">
+        <img src="image/jasa kebersihan.jpg">
+        Layanan Berkala
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac">
+        Layanan Fleksibel
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="contact" class="section">
+  <div class="box">
+    <h2>Contact</h2>
+    <div class="contact-card">
+      <p>Perumahan politeknik permai blok D lingkungan 7 kelurahan kairagi dua kecamatan mapanget</p>
+      <iframe src="https://maps.google.com/maps?q=Perumahan politeknik permai blok D lingkungan 7 kelurahan kairagi dua kecamatan mapanget&z=15&output=embed"></iframe>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<footer>
+  <p>© 2026 PT. Sparkling Clean</p>
+</footer>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.menu a').forEach(l => l.classList.remove('active'));
+
+  document.getElementById(id).classList.add('active');
+
+  document.querySelectorAll('.menu a').forEach(link => {
+    if(link.textContent.toLowerCase() === id){
+      link.classList.add('active');
+    }
+  });
+
+  document.getElementById('menu').classList.remove('active');
+}
+
+const hamburger = document.getElementById('hamburger');
+const menu = document.getElementById('menu');
+
+hamburger.addEventListener('click', () => {
+  menu.classList.toggle('active');
+  hamburger.classList.toggle('active');
+});
+</script>
+
+</body>
+</html>
